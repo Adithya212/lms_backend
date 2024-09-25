@@ -1,9 +1,6 @@
 package com.application.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +18,7 @@ public class Course
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	private String courseId;
 	private String courseName;
 	private String category;
 	private String enrolledDate;
@@ -32,4 +30,6 @@ public class Course
 //	private String coursetype;
 //	private String skilllevel;
 	private String description;
+//	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+//	private List<Enrollment> enrollments;
 }
