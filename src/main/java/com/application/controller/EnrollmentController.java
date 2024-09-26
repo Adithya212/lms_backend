@@ -3,7 +3,7 @@ package com.application.controller;
 import com.application.model.Course;
 import com.application.model.Enrollment;
 import com.application.model.EnrollmentRequest;
-import com.application.model.User;
+import com.application.model.Employee;
 import com.application.repository.CourseRepository;
 import com.application.repository.EnrollmentRepository;
 import com.application.repository.UserRepository;
