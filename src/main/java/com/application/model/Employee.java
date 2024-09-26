@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 @Entity
-@Table(name = "user_info")
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class Employee implements UserDetails {
 
@@ -30,7 +29,7 @@ public class Employee implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null; // No roles, so return null for authorities
+        return null;
     }
 
     @Override

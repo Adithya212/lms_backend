@@ -15,46 +15,28 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/auth")
-@CrossOrigin(origins = "http://localhost:54024")
+
 @RequiredArgsConstructor
 public class AuthController {
 
     private final ApiUserService userService;
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody SignupRequest signupRequest){
         Employee newUser = new Employee();
         newUser.setUserName(signupRequest.getUsername());
         newUser.setEmail(signupRequest.getEmail());
         newUser.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
-
-        // Save user to DB (Ensure email uniqueness)
         userService.saveUser(newUser);
-
         String token = jwtService.generateToken(newUser, newUser.getEmail());
         return ResponseEntity.ok(Map.of("message", "User registered successfully", "token", token));
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
-//        AppUser user = userService.findByEmail(loginRequest.getEmail());
-//        if (passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
-//            String token = jwtService.generateToken(user, user.getEmail());
-//
-//            // Respond with a custom message and the token
-//            return ResponseEntity.ok(Map.of(
-//                    "message", "Login successful",
-//                    "token", token
-//            ));
-//        } else {
-//            return ResponseEntity.status(401).body("Invalid credentials");
-//        }
-//    }
-
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         Employee user = userService.findByEmail(loginRequest.getEmail());

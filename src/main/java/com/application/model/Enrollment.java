@@ -3,9 +3,7 @@ package com.application.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.time.LocalDateTime;
 
 
@@ -13,8 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
-//@NoArgsConstructor
-public class Enrollment 
+public class Enrollment
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,7 +19,7 @@ public class Enrollment
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User user;
+	private Employee user;
 
 	@ManyToOne
 	@JoinColumn(name = "course_id")
@@ -34,27 +31,8 @@ public class Enrollment
 	private LocalDateTime completionDate;
 
 	public Enrollment() {
-		// Set default values for status and progress
 		this.status = "Enrolled";
 		this.progress = 0.0f;
 		this.startDate = LocalDateTime.now();
 	}
-//
-
 }
-
-//	private String coursename;
-//	private String courseid;
-//	private String enrolleddate;
-//	private String enrolledusername;
-//	private String enrolleduserid;
-//	private String enrolledusertype;
-//	private String instructorname;
-//	private String instructorinstitution;
-//	private String enrolledcount;
-//	private String youtubeurl;
-//	private String websiteurl;
-//	private String coursetype;
-//	private String skilllevel;
-//	private String language;
-//	private String description;
