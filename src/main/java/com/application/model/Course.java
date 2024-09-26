@@ -30,6 +30,7 @@ public class Course
 //	private String coursetype;
 //	private String skilllevel;
 	private String description;
+	private String videoUrl;
 //	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
 //	private List<Enrollment> enrollments;
 }

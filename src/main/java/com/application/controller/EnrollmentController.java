@@ -27,8 +27,8 @@ public class EnrollmentController extends EnrollmentRequest{
     private UserRepository userRepository;
 
     @GetMapping
-    public List<Enrollment> getAllEnrollments() {
-        return enrollmentRepository.findAll();
+    public ResponseEntity<List<Enrollment>> getAllEnrollments() {
+        return ResponseEntity.ok( enrollmentRepository.findAll());
     }
 
     @PostMapping
