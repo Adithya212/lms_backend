@@ -41,6 +41,7 @@ public class EnrollmentController extends EnrollmentRequest{
         enrollment.setUser(user);
         enrollment.setStartDate(LocalDateTime.now());
         enrollment.setStatus("Enrolled");
+        enrollment.setCompletionDate(enrollment.getStartDate().plusHours(48));
 
         return ResponseEntity.ok(enrollmentRepository.save(enrollment));
     }
