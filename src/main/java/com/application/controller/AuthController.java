@@ -71,5 +71,13 @@ public class AuthController {
         List<Employee> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
+    @GetMapping
+    public ResponseEntity<Long> getEmployeeIdByEmail(@PathVariable String email) {
+        Employee employee = userService.findByEmail(email);
+        if (employee == null) {
+            return ResponseEntity.notFound().build(); // Return 404 if not found
+        }
+        return ResponseEntity.ok(employee.getId());
+    }
 
 }

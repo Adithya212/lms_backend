@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProgressService {
@@ -18,8 +19,8 @@ public class ProgressService {
         return progressRepository.save(progress);
     }
 
-//    // Get progress by course
-//    public List<Progress> getProgressByCourse(Long courseId) {
-//        return progressRepository.findByCourseId(courseId);
-//    }
+    // Get progress by course
+    public List<Progress> getProgress() {
+        return progressRepository.findAll();
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -15,17 +16,15 @@ public class ProgressController {
 
     @Autowired
     private ProgressService progressService;
-
-    // Endpoint to update user progress
-    @PostMapping("/update")
+    @PostMapping
     public ResponseEntity<Progress> updateProgress(@RequestBody Progress progress) {
         Progress updatedProgress = progressService.updateProgress(progress);
         return ResponseEntity.ok(updatedProgress);
     }
+    @GetMapping
+    public List<Progress> getprogress(){
+        return progressService.getProgress();
 
-    // Endpoint to fetch progress by course ID
-//    @GetMapping("/course/{courseId}")
-//    public List<Progress> getProgressByCourse(@PathVariable Long courseId) {
-//        return progressService.getProgressByCourse(courseId);
-//    }
+    }
+
 }

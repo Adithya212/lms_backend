@@ -15,8 +15,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/enrollments")
 @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/enrollments")
+
 public class EnrollmentController extends EnrollmentRequest{
 
     @Autowired
