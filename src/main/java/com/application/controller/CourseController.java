@@ -11,8 +11,8 @@ import java.util.List;
 @RequestMapping("api/courses")
 @CrossOrigin(origins = "http://localhost:4200")
 public class CourseController {
-//    @Autowired
-    CourseService courseService;
+    @Autowired
+    private CourseService courseService;
 
     public CourseController(CourseService courseService) {
         this.courseService = courseService;

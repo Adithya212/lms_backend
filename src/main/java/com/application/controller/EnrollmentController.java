@@ -31,11 +31,18 @@ public class EnrollmentController extends EnrollmentRequest{
     public ResponseEntity<List<Enrollment>> getAllEnrollments() {
         return ResponseEntity.ok( enrollmentRepository.findAll());
     }
-
+    @GetMapping("/users/{userId}")
+    public List<Enrollment> getEnrollmentsByUserId(@PathVariable int userId) {
+        return enrollmentRepository.findByUser_Id(userId);
+    }
     @PostMapping
     public ResponseEntity<Enrollment> createEnrollment(@RequestBody EnrollmentRequest enrollmentRequest) {
+        if (enrollmentRequest.getCourseId() == null) {
+            return ResponseEntity.badRequest().body(null);
+        }
+//        System.out.println(courseRepository.findById(enrollmentRequest.getUserid()));
         Course course = courseRepository.findById(enrollmentRequest.getCourseId()).orElseThrow();
-        Employee user = userRepository.findById(enrollmentRequest.getId()).orElseThrow();
+        Employee user = userRepository.findById(enrollmentRequest.getUserId()).orElseThrow();
 
         Enrollment enrollment = new Enrollment();
         enrollment.setCourse(course);

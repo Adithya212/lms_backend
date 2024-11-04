@@ -24,9 +24,9 @@ public class EnrollmentService
 	{
 		return enrollmentRepository.save(enrollment);
 	}
-//	public Optional<Enrollment> getEnrollmentById(@PathVariable Integer id) {
-//		Enrollment enrollment = enrollmentRepository.findById(id)
-//				.orElseThrow(() -> new RuntimeException("Enrollment not found"));
-//	}
+
+	public List<Enrollment> getEnrollmentsByUserId(int userId) {
+		return enrollmentRepository.findByUser_Id(userId);
+	}
 
 }

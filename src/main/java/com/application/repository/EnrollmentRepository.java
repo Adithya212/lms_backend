@@ -12,6 +12,9 @@ import com.application.model.Enrollment;
 
 public interface EnrollmentRepository extends JpaRepository<Enrollment, Integer>
 {
+    List<Enrollment> findByCourse_Id(Integer courseId);
+    List<Enrollment> findByUser_Id(int userId);  // Custom query method
+}
 
 //    public Enrollment findByCoursename(String coursename);
 //
@@ -44,4 +47,3 @@ public interface EnrollmentRepository extends JpaRepository<Enrollment, Integer>
 //	@Query(value = "update enrollment set enrolledcount = ?1 where coursename = ?2",nativeQuery = true)
 //	public void updateEnrolledcount(int enrolledcount, String coursename);
 
-}

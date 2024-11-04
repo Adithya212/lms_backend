@@ -10,15 +10,12 @@ import com.application.repository.CourseRepository;
 @Service
 public class CourseService 
 {
+	@Autowired
 	private final CourseRepository courseRepo;
 	public CourseService(CourseRepository courseRepo) {
 		this.courseRepo = courseRepo;
 	}
-
-//	@Autowired
-
-	
-	public Course saveCourse(Course course)
+    public Course saveCourse(Course course)
 	{
 		return courseRepo.save(course);
 	}

@@ -6,7 +6,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class EnrollmentRequest {
-    private Integer id;
+    private Integer userId;
     private Integer courseId;
 
 }
